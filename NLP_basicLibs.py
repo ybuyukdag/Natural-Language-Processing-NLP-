@@ -17,8 +17,8 @@ text = """
 sentences = sent_tokenize(text)
 sentences = word_tokenize(text)
 
-# for sentence in sentences:
-#     print(sentence)
+for sentence in sentences:
+    print(sentence)
 
 
 ###Stemming(Gövdeleme)
@@ -28,7 +28,7 @@ stemmer = PorterStemmer()
 
 word = 'civilization'
 
-#print(stemmer.stem(word))
+print(stemmer.stem(word))
 
 #'civilization' -->> 'civil'
 
@@ -37,12 +37,12 @@ word = 'civilization'
 from nltk.stem.snowball import SnowballStemmer
 stemmer = SnowballStemmer('english')
 word = 'civilization'
-#print(stemmer.stem(word))
+print(stemmer.stem(word))
 
 from snowballstemmer import TurkishStemmer
 turkishStem=TurkishStemmer()
-# print(turkishStem.stemWord("ekmekler")) #ekmek
-# print(turkishStem.stemWord("çiçeklik")) #çiçeklik
+print(turkishStem.stemWord("ekmekler")) #ekmek
+print(turkishStem.stemWord("çiçeklik")) #çiçeklik
 #snowball returns only lemmas for Turkish
 
 ###Lemmatization(Baş Sözcük Çıkarma)
@@ -51,19 +51,19 @@ import spacy
 nlp = spacy.load('en_core_web_sm')
 word = nlp ('civilization')
 
-# for token in word:
-#     print(token.lemma_) #civilization
+for token in word:
+    print(token.lemma_) #civilization
 
 ##PostTagging
 #NLTK
 tokens = nltk.word_tokenize("Can you buy me a red chili pepper from a grocery?")
 
-#print("Part of Speech:", nltk.pos_tag(tokens))
+print("Part of Speech:", nltk.pos_tag(tokens))
 #Spacy
 nlp = spacy.load("en_core_web_sm")
 doc = nlp("I want an early upgrade")
-# for token in doc:
-#     print(token.text, token.pos_)
+for token in doc:
+   print(token.text, token.pos_)
 
 ##NAME ENTITY RECOGNATION(NER)(VARLIK İSMİ TANIMA)
 #nltk
@@ -72,7 +72,7 @@ sentence = "Legendary scientist Albert Eİnstein is born in Ulm, Germany."
 tokens = nltk.word_tokenize(sentence)
 tagged_tokens = nltk.pos_tag(tokens)
 entities = nltk.chunk.ne_chunk(tagged_tokens)
-#print(entities)
+print(entities)
 #spacy
 from spacy import displacy
 from collections import Counter
